@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MWRouterTester
+namespace urlgen
 {
 	static class Program
 	{
