@@ -45,6 +45,7 @@
 			this.txtSecretKey = new System.Windows.Forms.TextBox();
 			this.label8 = new System.Windows.Forms.Label();
 			this.grpData = new System.Windows.Forms.GroupBox();
+			this.btnCopySupplierSubID = new System.Windows.Forms.Button();
 			this.label9 = new System.Windows.Forms.Label();
 			this.label10 = new System.Windows.Forms.Label();
 			this.txtEntryLink = new System.Windows.Forms.TextBox();
@@ -55,8 +56,11 @@
 			this.label12 = new System.Windows.Forms.Label();
 			this.txtHMAC = new System.Windows.Forms.Label();
 			this.txtHmacData = new System.Windows.Forms.TextBox();
-			this.btnCopySupplierSubID = new System.Windows.Forms.Button();
+			this.rbSecretIsAscii = new System.Windows.Forms.RadioButton();
+			this.rbSecretIsHex = new System.Windows.Forms.RadioButton();
+			this.grpSecretKeyType = new System.Windows.Forms.GroupBox();
 			this.grpData.SuspendLayout();
+			this.grpSecretKeyType.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -190,6 +194,7 @@
 			// 
 			// grpData
 			// 
+			this.grpData.Controls.Add(this.grpSecretKeyType);
 			this.grpData.Controls.Add(this.btnCopySupplierSubID);
 			this.grpData.Controls.Add(this.txtSupplierID);
 			this.grpData.Controls.Add(this.label8);
@@ -209,103 +214,10 @@
 			this.grpData.Controls.Add(this.txtEmail);
 			this.grpData.Location = new System.Drawing.Point(12, 12);
 			this.grpData.Name = "grpData";
-			this.grpData.Size = new System.Drawing.Size(686, 250);
+			this.grpData.Size = new System.Drawing.Size(686, 320);
 			this.grpData.TabIndex = 16;
 			this.grpData.TabStop = false;
 			this.grpData.Text = "URL Parameters";
-			// 
-			// label9
-			// 
-			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(12, 362);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(38, 13);
-			this.label9.TabIndex = 17;
-			this.label9.Text = "HMAC";
-			// 
-			// label10
-			// 
-			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(9, 416);
-			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(54, 13);
-			this.label10.TabIndex = 19;
-			this.label10.Text = "Entry Link";
-			// 
-			// txtEntryLink
-			// 
-			this.txtEntryLink.Location = new System.Drawing.Point(12, 432);
-			this.txtEntryLink.Name = "txtEntryLink";
-			this.txtEntryLink.ReadOnly = true;
-			this.txtEntryLink.Size = new System.Drawing.Size(1022, 20);
-			this.txtEntryLink.TabIndex = 20;
-			// 
-			// btnExit
-			// 
-			this.btnExit.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.btnExit.Location = new System.Drawing.Point(546, 474);
-			this.btnExit.Name = "btnExit";
-			this.btnExit.Size = new System.Drawing.Size(75, 23);
-			this.btnExit.TabIndex = 21;
-			this.btnExit.Text = "Exit";
-			this.btnExit.UseVisualStyleBackColor = true;
-			this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-			// 
-			// btnCopy
-			// 
-			this.btnCopy.Location = new System.Drawing.Point(436, 474);
-			this.btnCopy.Name = "btnCopy";
-			this.btnCopy.Size = new System.Drawing.Size(75, 23);
-			this.btnCopy.TabIndex = 22;
-			this.btnCopy.Text = "Copy";
-			this.btnCopy.UseVisualStyleBackColor = true;
-			this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
-			// 
-			// btnCalculate
-			// 
-			this.btnCalculate.Location = new System.Drawing.Point(12, 268);
-			this.btnCalculate.Name = "btnCalculate";
-			this.btnCalculate.Size = new System.Drawing.Size(75, 23);
-			this.btnCalculate.TabIndex = 23;
-			this.btnCalculate.Text = "Calculate";
-			this.btnCalculate.UseVisualStyleBackColor = true;
-			this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
-			// 
-			// btnTest
-			// 
-			this.btnTest.Location = new System.Drawing.Point(623, 268);
-			this.btnTest.Name = "btnTest";
-			this.btnTest.Size = new System.Drawing.Size(75, 23);
-			this.btnTest.TabIndex = 24;
-			this.btnTest.Text = "Test Data";
-			this.btnTest.UseVisualStyleBackColor = true;
-			this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
-			// 
-			// label12
-			// 
-			this.label12.AutoSize = true;
-			this.label12.Location = new System.Drawing.Point(12, 332);
-			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(64, 13);
-			this.label12.TabIndex = 25;
-			this.label12.Text = "HMAC Data";
-			// 
-			// txtHMAC
-			// 
-			this.txtHMAC.AutoSize = true;
-			this.txtHMAC.Location = new System.Drawing.Point(117, 362);
-			this.txtHMAC.Name = "txtHMAC";
-			this.txtHMAC.Size = new System.Drawing.Size(62, 13);
-			this.txtHMAC.TabIndex = 18;
-			this.txtHMAC.Text = "(calculated)";
-			// 
-			// txtHmacData
-			// 
-			this.txtHmacData.Location = new System.Drawing.Point(120, 329);
-			this.txtHmacData.Name = "txtHmacData";
-			this.txtHmacData.ReadOnly = true;
-			this.txtHmacData.Size = new System.Drawing.Size(914, 20);
-			this.txtHmacData.TabIndex = 26;
 			// 
 			// btnCopySupplierSubID
 			// 
@@ -317,11 +229,136 @@
 			this.btnCopySupplierSubID.UseVisualStyleBackColor = true;
 			this.btnCopySupplierSubID.Click += new System.EventHandler(this.btnCopySupplierSubID_Click);
 			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this.label9.Location = new System.Drawing.Point(9, 424);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(38, 13);
+			this.label9.TabIndex = 17;
+			this.label9.Text = "HMAC";
+			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this.label10.Location = new System.Drawing.Point(9, 478);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(54, 13);
+			this.label10.TabIndex = 19;
+			this.label10.Text = "Entry Link";
+			// 
+			// txtEntryLink
+			// 
+			this.txtEntryLink.Location = new System.Drawing.Point(12, 494);
+			this.txtEntryLink.Name = "txtEntryLink";
+			this.txtEntryLink.ReadOnly = true;
+			this.txtEntryLink.Size = new System.Drawing.Size(1022, 20);
+			this.txtEntryLink.TabIndex = 20;
+			// 
+			// btnExit
+			// 
+			this.btnExit.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.btnExit.Location = new System.Drawing.Point(546, 536);
+			this.btnExit.Name = "btnExit";
+			this.btnExit.Size = new System.Drawing.Size(75, 23);
+			this.btnExit.TabIndex = 21;
+			this.btnExit.Text = "Exit";
+			this.btnExit.UseVisualStyleBackColor = true;
+			this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+			// 
+			// btnCopy
+			// 
+			this.btnCopy.Location = new System.Drawing.Point(436, 536);
+			this.btnCopy.Name = "btnCopy";
+			this.btnCopy.Size = new System.Drawing.Size(75, 23);
+			this.btnCopy.TabIndex = 22;
+			this.btnCopy.Text = "Copy";
+			this.btnCopy.UseVisualStyleBackColor = true;
+			this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
+			// 
+			// btnCalculate
+			// 
+			this.btnCalculate.Location = new System.Drawing.Point(12, 338);
+			this.btnCalculate.Name = "btnCalculate";
+			this.btnCalculate.Size = new System.Drawing.Size(75, 23);
+			this.btnCalculate.TabIndex = 23;
+			this.btnCalculate.Text = "Calculate";
+			this.btnCalculate.UseVisualStyleBackColor = true;
+			this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
+			// 
+			// btnTest
+			// 
+			this.btnTest.Location = new System.Drawing.Point(623, 338);
+			this.btnTest.Name = "btnTest";
+			this.btnTest.Size = new System.Drawing.Size(75, 23);
+			this.btnTest.TabIndex = 24;
+			this.btnTest.Text = "Test Data";
+			this.btnTest.UseVisualStyleBackColor = true;
+			this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+			// 
+			// label12
+			// 
+			this.label12.AutoSize = true;
+			this.label12.Location = new System.Drawing.Point(9, 391);
+			this.label12.Name = "label12";
+			this.label12.Size = new System.Drawing.Size(64, 13);
+			this.label12.TabIndex = 25;
+			this.label12.Text = "HMAC Data";
+			// 
+			// txtHMAC
+			// 
+			this.txtHMAC.AutoSize = true;
+			this.txtHMAC.Location = new System.Drawing.Point(117, 424);
+			this.txtHMAC.Name = "txtHMAC";
+			this.txtHMAC.Size = new System.Drawing.Size(62, 13);
+			this.txtHMAC.TabIndex = 18;
+			this.txtHMAC.Text = "(calculated)";
+			// 
+			// txtHmacData
+			// 
+			this.txtHmacData.Location = new System.Drawing.Point(120, 391);
+			this.txtHmacData.Name = "txtHmacData";
+			this.txtHmacData.ReadOnly = true;
+			this.txtHmacData.Size = new System.Drawing.Size(914, 20);
+			this.txtHmacData.TabIndex = 26;
+			// 
+			// rbSecretIsAscii
+			// 
+			this.rbSecretIsAscii.AutoSize = true;
+			this.rbSecretIsAscii.Checked = true;
+			this.rbSecretIsAscii.Location = new System.Drawing.Point(6, 19);
+			this.rbSecretIsAscii.Name = "rbSecretIsAscii";
+			this.rbSecretIsAscii.Size = new System.Drawing.Size(117, 17);
+			this.rbSecretIsAscii.TabIndex = 17;
+			this.rbSecretIsAscii.TabStop = true;
+			this.rbSecretIsAscii.Text = "Secret Key is ASCII";
+			this.rbSecretIsAscii.UseVisualStyleBackColor = true;
+			// 
+			// rbSecretIsHex
+			// 
+			this.rbSecretIsHex.AutoSize = true;
+			this.rbSecretIsHex.Location = new System.Drawing.Point(6, 42);
+			this.rbSecretIsHex.Name = "rbSecretIsHex";
+			this.rbSecretIsHex.Size = new System.Drawing.Size(109, 17);
+			this.rbSecretIsHex.TabIndex = 18;
+			this.rbSecretIsHex.Text = "Secret Key is Hex";
+			this.rbSecretIsHex.UseVisualStyleBackColor = true;
+			// 
+			// grpSecretKeyType
+			// 
+			this.grpSecretKeyType.Controls.Add(this.rbSecretIsAscii);
+			this.grpSecretKeyType.Controls.Add(this.rbSecretIsHex);
+			this.grpSecretKeyType.Location = new System.Drawing.Point(37, 238);
+			this.grpSecretKeyType.Name = "grpSecretKeyType";
+			this.grpSecretKeyType.Size = new System.Drawing.Size(130, 73);
+			this.grpSecretKeyType.TabIndex = 19;
+			this.grpSecretKeyType.TabStop = false;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1046, 509);
+			this.ClientSize = new System.Drawing.Size(1046, 570);
 			this.Controls.Add(this.txtHmacData);
 			this.Controls.Add(this.label12);
 			this.Controls.Add(this.btnTest);
@@ -337,6 +374,8 @@
 			this.Text = "Router Tester";
 			this.grpData.ResumeLayout(false);
 			this.grpData.PerformLayout();
+			this.grpSecretKeyType.ResumeLayout(false);
+			this.grpSecretKeyType.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -372,6 +411,9 @@
 		private System.Windows.Forms.Label txtHMAC;
 		private System.Windows.Forms.TextBox txtHmacData;
 		private System.Windows.Forms.Button btnCopySupplierSubID;
+		private System.Windows.Forms.GroupBox grpSecretKeyType;
+		private System.Windows.Forms.RadioButton rbSecretIsAscii;
+		private System.Windows.Forms.RadioButton rbSecretIsHex;
 	}
 }
 

@@ -34,10 +34,15 @@ namespace urlgen
 			txtIPAddress.Text = "76.236.220.211";
 			txtSecretKey.Text = "69785143472835dba8facfa442e042b8";
 			cboGender.SelectedIndex = cboGender.FindString("Male");
+			rbSecretIsAscii.Checked = true;
+			rbSecretIsHex.Checked = false;
 		}
 
 		private void btnCalculate_Click(object sender, EventArgs e)
 		{
+			var x = Crypto.StringEncode(txtSecretKey.Text);
+			var x2 = Crypto.HashEncode(x);
+
 			var hmacData = new Dictionary<string, string>();
 			hmacData["unique_user_id"] = txtUniqueUserID.Text;
 			hmacData["date_of_birth"] = txtDOB.Text;
@@ -47,7 +52,7 @@ namespace urlgen
 			var hmacPayload = string.Join("&", hmacData.Select(p => p.Key + "=" + p.Value));
 
 			txtHmacData.Text = hmacPayload;
-			txtHMAC.Text = Crypto.HashHMACHex(txtSecretKey.Text, hmacPayload);
+			txtHMAC.Text = Crypto.HashHMACHex(txtSecretKey.Text, hmacPayload, rbSecretIsHex.Checked);
 
 			var qsData = new Dictionary<string, string>();
 			qsData["si"] = txtSupplierID.Text;

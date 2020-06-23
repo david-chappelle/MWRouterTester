@@ -39,9 +39,9 @@ namespace urlgen
 			return bytes;
 		}
 
-		public static string HashHMACHex(string keyHex, string message)
+		public static string HashHMACHex(string key, string message, bool keyIsHex = true)
 		{
-			byte[] hash = HashHMAC(HexDecode(keyHex), StringEncode(message));
+			byte[] hash = HashHMAC(keyIsHex ? HexDecode(key) : StringEncode(key), StringEncode(message));
 			return HashEncode(hash);
 		}
 	}
