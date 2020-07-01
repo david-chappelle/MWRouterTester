@@ -40,9 +40,6 @@ namespace urlgen
 
 		private void btnCalculate_Click(object sender, EventArgs e)
 		{
-			var x = Crypto.StringEncode(txtSecretKey.Text);
-			var x2 = Crypto.HashEncode(x);
-
 			var hmacData = new Dictionary<string, string>();
 			hmacData["unique_user_id"] = txtUniqueUserID.Text;
 			hmacData["date_of_birth"] = txtDOB.Text;
